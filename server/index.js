@@ -3,11 +3,12 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const connectDB = require('./database/database');
-const socketHandlers = require('./handlers/socketHandlers');
+const registerSocketHandlers = require("./handlers");
+
 
 // Connect to MongoDB
 connectDB();
- 
+
 
 // Initialize Express app
 const app = express();
@@ -18,8 +19,13 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 
-// Use the socket handlers
-socketHandlers(io);
+// Sockets
+io.on("connection", (socket) => {
+    console.log(`New client connected: ${socket.id}`);
+
+    registerSocketHandlers(io, socket);
+
+});
 
 
 // Start the server
