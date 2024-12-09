@@ -50,7 +50,7 @@ const groupSchema = new mongoose.mongoose.Schema({
                 default: Date.now, // Timestamp of message sent
             },
         },
-    ],
+    ]
 });
 
 module.exports = mongoose.model('Group' , groupSchema);

@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
             timeStamp: { type: Date, default: Date.now } //It gives time of message
         }
     ],
+    isOnline : {type : Boolean, default : false},
     lastSeen : {type : Date , default : Date.now}
 }, { timeStamps: true }); // Add 'createAt' and 'updatedAt' fields
 
