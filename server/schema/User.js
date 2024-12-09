@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema({
             isRead: { type: Boolean, default: false }, // It gives boolean if message is readed or not
             timeStamp: { type: Date, default: Date.now } //It gives time of message
         }
-    ]
+    ],
+    lastSeen : {type : Date , default : Date.now}
 }, { timeStamps: true }); // Add 'createAt' and 'updatedAt' fields
 
 module.exports = mongoose.model('User', userSchema);
