@@ -4,6 +4,9 @@ const http = require('http');
 const { Server } = require('socket.io');
 const connectDB = require('./database/database');
 const registerSocketHandlers = require("./handlers");
+const User = require('./schema/User');
+const Group = require('./schema/Group');
+const Personal = require('./schema/Personal');
 
 
 // Connect to MongoDB
@@ -27,6 +30,19 @@ io.on("connection", (socket) => {
 
 });
 
+let user = new User({
+    userName: 'ergds',
+    password: 'asg',
+    about: 'aseg',
+    description: 'aksjd;oivaowjegnv aweht auierhta',
+    mobileNo: '1234178909',
+    notification: [],
+    isOnline : false,
+});
+
+console.log(user);
+
+user.save();
 
 // Start the server
 const PORT = process.env.PORT || 3000;
