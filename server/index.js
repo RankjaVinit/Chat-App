@@ -7,6 +7,7 @@ const registerSocketHandlers = require("./handlers");
 const User = require('./schema/User');
 const Group = require('./schema/Group');
 const Personal = require('./schema/Personal');
+const getISTDate = require('./date');
 
 
 // Connect to MongoDB
@@ -38,11 +39,12 @@ io.on("connection", (socket) => {
 //     mobileNo: '1234178909',
 //     notification: [],
 //     isOnline : false,
+//     lastSeen : getISTDate()
 // });
 
-// console.log(user);
 
-// user.save();
+// let ans = user.save();
+// console.log(ans);
 
 // Start the server
 const PORT = process.env.PORT || 3000;

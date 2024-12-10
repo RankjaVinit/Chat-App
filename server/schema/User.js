@@ -1,5 +1,4 @@
-// .. 
-
+const getISTDate = require('../date');
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
