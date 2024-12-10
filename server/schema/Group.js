@@ -13,7 +13,7 @@ const groupSchema = new mongoose.mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now, // Timestamp of group creation
+        // default: Date.now, // Timestamp of group creation
     },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
@@ -29,7 +29,7 @@ const groupSchema = new mongoose.mongoose.Schema({
             },
             joinedAt: {
                 type: Date,
-                default: Date.now, // Timestamp when the user joined
+                // default: Date.now, // Timestamp when the user joined
             },
         },
     ],
@@ -46,7 +46,7 @@ const groupSchema = new mongoose.mongoose.Schema({
             },
             sentAt: {
                 type: Date,
-                default: Date.now, // Timestamp of message sent
+                // default: Date.now, // Timestamp of message sent
             },
         },
     ]

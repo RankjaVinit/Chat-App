@@ -31,6 +31,7 @@ io.on("connection", (socket) => {
 
 });
 
+// for try...
 // let user = new User({
 //     userName: 'ergds',
 //     password: 'asg',
@@ -42,9 +43,13 @@ io.on("connection", (socket) => {
 //     lastSeen : getISTDate()
 // });
 
-
 // let ans = user.save();
 // console.log(ans);
+
+
+// for date of India ....
+// console.log(getISTDate());
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
