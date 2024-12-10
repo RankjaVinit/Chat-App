@@ -23,6 +23,12 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 
+
+// Setup Express routes
+app.use('/api', apiRoutes);
+
+
+
 // Sockets
 io.on("connection", (socket) => {
     console.log(`New client connected: ${socket.id}`);
@@ -30,6 +36,9 @@ io.on("connection", (socket) => {
     registerSocketHandlers(io, socket);
 
 });
+
+
+
 
 // for try...
 // let user = new User({
