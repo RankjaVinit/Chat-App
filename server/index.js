@@ -7,6 +7,7 @@ const registerSocketHandlers = require("./handlers");
 const User = require('./schema/User');
 const Group = require('./schema/Group');
 const Personal = require('./schema/Personal');
+const apiRoutes = require('./routes/apiRoutes');
 const getISTDate = require('./date');
 
 
@@ -25,7 +26,7 @@ const io = new Server(server);
 
 
 // Setup Express routes
-app.use('/api', apiRoutes);
+app.use('/', apiRoutes);
 
 
 
