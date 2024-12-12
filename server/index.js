@@ -7,7 +7,7 @@ const registerSocketHandlers = require("./handlers");
 const User = require('./schema/User');
 const Group = require('./schema/Group');
 const Personal = require('./schema/Personal');
-const apiRoutes = require('./routes/apiRoutes');
+const apiRoutes = require('./routes');
 const getISTDate = require('./date');
 
 
