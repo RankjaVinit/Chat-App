@@ -13,6 +13,9 @@ router.post('/signup', async (req, res) => {
         // get all user details from body
         const { confirmPassword, password, ...userDetails } = req.body;
 
+        // Check here if any user have same name or mobileNo : 
+        // if any return msg ... 
+
         // Check if the password matches the confirmation
         if( password !== confirmPassword ){
             return res.status(401).send({ message: "Password don't match, please try again." });
@@ -21,9 +24,6 @@ router.post('/signup', async (req, res) => {
         // Hash the password
         const hashedPassword = await argon2.hash( password );
         
-        // const now = new Date();
-        // const date = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-
         const date = getISTDate();
 
         // Create the user with the current timestamp
