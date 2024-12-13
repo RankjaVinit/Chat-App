@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const argon2 = require('argon2');
+
 const User = require('../../schema/User');
 
 // Login 
@@ -16,12 +18,13 @@ router.get('/login', async (req, res) => {
     
         // If user is not found
         if(!user){
-            res.status(404).send({ message: "User not found" });
+            return res.status(404).send({ message: "User not found" });
         }    
 
         // Validate the password
-        if (user.password !== password) {
-            res.status(401).send({ message: "Incorrect Password" });
+        const isMatch = await argon2.verify(user.password, password);
+        if ( !isMatch ) {
+            return res.status(401).send({ message: "Incorrect Password" });
         }
 
         // Exclude password from the response

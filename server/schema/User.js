@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema({
         unique: true
         // , match : /^[0-9]{10}$/   //This is mobile pattern
     }, // it is your mobile no and it is compulsory
+    createdAt: {
+        type: Date,
+        // default: Date.now, // Timestamp of group creation
+    },
     notification: [
         {
             _id: { 
