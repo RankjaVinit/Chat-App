@@ -31,7 +31,10 @@ const groupSchema = new mongoose.mongoose.Schema({
                 type: Date,
                 // default: Date.now, // Timestamp when the user joined
             },
-        },
+            role: {
+                type: String
+            }
+        }
     ],
     messages: [
         {
@@ -47,9 +50,27 @@ const groupSchema = new mongoose.mongoose.Schema({
             sentAt: {
                 type: Date,
                 // default: Date.now, // Timestamp of message sent
-            },
+            }
+        }
+    ],
+    setting: {
+        membersCanChangeName: {
+            type: Boolean,
+            required: true,
+            default: true, // Defines if members can change group name/icon/description
         },
-    ]
+        membersCanSendMessage: {
+            type: Boolean,
+            required: true,
+            default: true, // Defines if members can send messages
+        },
+        membersCanAddMembers: {
+            type: Boolean,
+            required: true,
+            default: true, // Defines if members can add/remove/change roles of other members
+        },
+        
+    }
 });
 
 module.exports = mongoose.model('Group' , groupSchema);
